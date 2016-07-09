@@ -1,0 +1,6 @@
+<%= node['fluent-agent-lite']['log']['file'] %> {
+    daily
+    rotate <%= node['fluent-agent-lite']['log']['rotate'] %>
+    dateext
+    missingok
+}

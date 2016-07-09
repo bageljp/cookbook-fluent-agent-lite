@@ -1,0 +1,20 @@
+default['fluent-agent-lite']['version'] = "1.0"
+default['fluent-agent-lite']['install_flavor'] = "rpm"
+default['fluent-agent-lite']['rpm']['file'] = "fluent-agent-lite-#{node['fluent-agent-lite']['version']}-original.x86_64.rpm"
+default['fluent-agent-lite']['rpm']['url'] = "https://localhost/#{node['fluent-agent-lite']['rpm']['file']}"
+default['fluent-agent-lite']['rpmbuild']['root_dir'] = "/usr/local/src/rpmbuild"
+default['fluent-agent-lite']['rpmbuild']['home_dir'] = "/root"
+default['fluent-agent-lite']['rpmbuild']['user'] = "root"
+default['fluent-agent-lite']['rpmbuild']['group'] = "root"
+default['fluent-agent-lite']['rpmbuild']['url'] = "https://github.com/tagomoris/fluent-agent-lite/archive/v#{node['fluent-agent-lite']['version']}.tar.gz"
+default['fluent-agent-lite']['rpmbuild']['s3']['upload'] = false
+default['fluent-agent-lite']['rpmbuild']['s3']['url'] = "s3://localhost/"
+default['fluent-agent-lite']['conf']['server'] = "primary.fluentd.local"
+default['fluent-agent-lite']['conf']['port'] = "24224"
+default['fluent-agent-lite']['conf']['logs'] = { "os.syslog" => "/var/log/messages",
+                                                 "os.mail" => "/var/log/maillog",
+                                                 "os.wtmp" => "/var/log/wtmp",
+                                                 "os.btmp" => "/var/log/btmp",
+                                                 "os.secure" => "/var/log/secure" }
+default['fluent-agent-lite']['log']['file'] = "/var/log/fluent-agent-lite.log"
+default['fluent-agent-lite']['log']['rotate'] = "62"
